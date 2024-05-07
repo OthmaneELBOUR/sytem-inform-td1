@@ -4,10 +4,10 @@ public class Produit {
     private int code;
     private String libelle;
     private double prixHT;
-    private int TVA;
+    private double TVA;
     private int stock;
 
-    public Produit(int code, String libelle, double prixHT, int TVA, int stock) {
+    public Produit(int code, String libelle, double prixHT, double TVA, int stock) {
         this.code = code;
         this.libelle = libelle;
         this.prixHT = prixHT;
@@ -39,7 +39,7 @@ public class Produit {
         this.prixHT = prixHT;
     }
 
-    public int getTVA() {
+    public double getTVA() {
         return this.TVA;
     }
 
@@ -63,11 +63,16 @@ public class Produit {
 
     public String toString() {
         String blanks = "";
+        String blanks2 = "";
         for(int i = 0; i < 60 - this.libelle.length(); i++) {
             blanks += " ";
         }
 
-        return this.libelle + blanks + this.calculerPrixTTC();
+        for(int i = 0; i < 10 - (int) (Math.log10(this.calculerPrixTTC()) + 1); i++) {
+            blanks2 += " ";
+        }
+
+        return this.libelle + blanks + this.calculerPrixTTC() + blanks2 + this.stock + " unité(s)";
     }
 
 }

@@ -19,11 +19,17 @@ public class Catalogue {
     }
 
     public void afficherCatalogue() {
+        String spaces = "";
+        for(int i = 0; i < 53; i++) {
+            spaces += " ";
+        }
+        System.out.println("Libellé" + spaces + "PrixTTC" + "     Stock");
         for(Produit p : catalogue) {
             System.out.println("+----------------------------------------------------------------------------------------------------+");
             System.out.println(p);
-            System.out.println("+----------------------------------------------------------------------------------------------------+");
         }
+        System.out.println("+----------------------------------------------------------------------------------------------------+");
+
     }
 
 }

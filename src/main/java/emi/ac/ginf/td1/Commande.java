@@ -86,6 +86,7 @@ public class Commande {
             System.out.println("Produit en rupture indisponible !");
             System.out.println("Commande mise en attente");
             this.state = new CommandeAttente();
+            return;
         }
         this.dtc.add(prod);
         prod.getProduit().setStock(prod.getProduit().getStock() - prod.getQte());
